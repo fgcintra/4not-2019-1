@@ -8,7 +8,7 @@ var usersRouter = require('./routes/users');
 
 // Conexão com o banco de dados
 const db = require('./config/database');
-db('mongodb://127.0.0.1:27017/progweb');
+db('mongodb://127.0.0.1:27017/4not-2019-1');
 
 var app = express();
 
@@ -23,5 +23,8 @@ app.use('/users', usersRouter);
 
 let teste = require('./routes/teste');
 app.use('/teste', teste);
+
+const veiculo = require('./routes/veiculo');
+app.use('/veiculo', veiculo);
 
 module.exports = app;

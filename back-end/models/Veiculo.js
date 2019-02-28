@@ -40,6 +40,10 @@ module.exports = function() {
             unique: true
          }
       },
+      importado: {
+         type: Boolean,
+         required: true
+      },
       valor_compra: {
          type: Number,
          required: true
