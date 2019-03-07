@@ -24,4 +24,67 @@ controller.novo = function(req, res) {
    );
 }
 
+controller.listar = function(req, res) {
+   Veiculo.find().exec().then(
+      // Callback do bem
+      function(veiculos) { // TODOS os veículos em um vetor
+         // Retorna o vetor encontrado
+         res.json(veiculos).end();
+      },
+      // Callback do mal
+      function(erro) {
+         console.error(erro);
+         res.sendStatus(500).end();
+      }
+   );
+}
+
+controller.obterUm = function(req, res) {
+   // Capturamos o parâmetro id da requisição
+   const id = req.params.id;
+
+   Veiculo.findById(id).exec().then(
+      // Callback do bem
+      function(veiculo) {  // Zero ou um veículo
+         if(veiculo) {   // Veículo encontrado
+            res.json(veiculo).end();
+         }
+         else {          // Veículo não encontrado
+            // HTTP 404: Não encontrado
+            res.sendStatus(404).end();
+         }
+      },
+      // Callback do mal
+      function(erro) {
+         console.error(erro);
+         res.sendStatus(500).end();
+      }
+   );
+}
+
+controller.atualizar = function(req, res) {
+   // Capturar o id de dentro do corpo da requisição
+   const id = req.body._id;
+
+   // Encontra o objeto identificado pelo id
+   // e substitui seu conteúdo por req.body
+   Veiculo.findByIdAndUpdate(id, req.body).exec().then(
+      // Callback do bem
+      function(veiculo) {
+         if(veiculo) {     // Encontrou e atualizou
+            // HTTP 204: OK (sem conteúdo)
+            res.sendStatus(204).end();
+         }
+         else {            // Não encontrou (e não atualizou)
+            res.sendStatus(404).end();
+         }
+      },
+      // Callback do mal
+      function(erro) {
+         console.error(erro);
+         res.sendStatus(500).end();
+      }
+   );
+}
+
 module.exports = controller;
