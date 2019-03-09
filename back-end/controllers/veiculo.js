@@ -68,7 +68,8 @@ controller.atualizar = function(req, res) {
 
    // Encontra o objeto identificado pelo id
    // e substitui seu conteúdo por req.body
-   Veiculo.findByIdAndUpdate(id, req.body).exec().then(
+   //Veiculo.findByIdAndUpdate(id, req.body).exec().then(
+   Veiculo.findOneAndUpdate({_id: id}, req.body).exec().then(
       // Callback do bem
       function(veiculo) {
          if(veiculo) {     // Encontrou e atualizou
@@ -85,6 +86,31 @@ controller.atualizar = function(req, res) {
          res.sendStatus(500).end();
       }
    );
+}
+
+controller.excluir = function(req, res) {
+   // Capturamos o id a partir da url da requisição
+   const id = req.params.id;
+
+   Veiculo.findOneAndDelete({_id: id}).exec().then(
+      // Callback do bem
+      function(veiculo) {     
+         if(veiculo) {  // Encontrou e excluiu
+            res.sendStatus(204).end();
+         }
+         else {         // Não encontrou (e não excluiu)
+            res.sendStatus(404).end();
+         }
+         
+      },
+      // Callback do mal
+      function(erro) {
+         console.error(erro);
+         res.sendStatus(500).end();
+      }
+   );
+
+
 }
 
 module.exports = controller;
