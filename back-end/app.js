@@ -27,4 +27,19 @@ app.use('/teste', teste);
 const veiculo = require('./routes/veiculo');
 app.use('/veiculo', veiculo);
 
+const tipo = require('./routes/tipo');
+app.use('/tipo', tipo);
+
+const marca = require('./routes/marca');
+app.use('/marca', marca);
+
+const modelo = require('./routes/modelo');
+app.use('/modelo', modelo);
+
+const cor = require('./routes/cor');
+app.use('/cor', cor);
+
+const combustivel = require('./routes/combustivel');
+app.use('/combustivel', combustivel);
+
 module.exports = app;

@@ -25,7 +25,13 @@ controller.novo = function(req, res) {
 }
 
 controller.listar = function(req, res) {
-   Veiculo.find().exec().then(
+   Veiculo.find()
+      // populate() de dois níveis: popula 'modelo' e, dentro
+      // dele, também popula 'marca'
+      .populate({path: 'modelo', populate: {path: 'marca'}})
+      .populate('cor')
+      .populate('combustivel')
+      .exec().then(
       // Callback do bem
       function(veiculos) { // TODOS os veículos em um vetor
          // Retorna o vetor encontrado
