@@ -28,7 +28,7 @@ controller.listar = function(req, res) {
    // populate() recebe o nome do atributo que
    // será substituído pelo conteúdo do modelo relacionado
    // CUIDADO: só use populate() no listar!
-   Modelo.find().exec().then(
+   Modelo.find().populate('tipo').populate('marca').exec().then(
       // Callback do bem
       function(modelos) {
          // Retorna TODOS os veículos em um vetor,
