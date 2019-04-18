@@ -6,7 +6,7 @@ No terminal, execute o comando abaixo.
 * No Linux, o comando deverá ser precedido por `sudo`.
 
 ```bash
-npm install -g @angular-cli@latest
+npm install -g @angular/cli@latest
 ```
 
 * Se você estiver utilizando Windows, deverá reiniciar o computador.
