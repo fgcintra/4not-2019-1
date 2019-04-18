@@ -29,6 +29,7 @@ controller.listar = function(req, res) {
       // populate() de dois níveis: popula 'modelo' e, dentro
       // dele, também popula 'marca'
       .populate({path: 'modelo', populate: {path: 'marca'}})
+      .populate({path: 'modelo', populate: {path: 'tipo'}})
       .populate('cor')
       .populate('combustivel')
       .exec().then(
