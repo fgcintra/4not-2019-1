@@ -24,7 +24,7 @@ A versão esperada do Angular CLI, em abril de 2019, é, pelo menos, **7.3.7**.
 > Nesse caso, precisaremos criar um arquivo de nome `ng.bat`, dentro da pasta de trabalho (`ProgWeb` ou semelhante), com o seguinte conteúdo:
 >
 > ```cmd
- > %USERPROFILE%\AppData\Roaming\npm\bin\ng %1 %2 %3 %4 %5 %6 %7 %8 %9
+ > %USERPROFILE%\AppData\Roaming\npm\ng %1 %2 %3 %4 %5 %6 %7 %8 %9
 > ```
 >
 > Após criar e salvar o arquivo, o comando `ng --version` deve funcionar no terminal.
@@ -105,3 +105,44 @@ Abra o arquivo `src/styles.scss` e acrescente a **última linha**:
 /* Acrescente a linha a seguir */
 @import "~material-design-icons/iconfont/material-icons.css";
 ```
+
+## 7. Adicionando um módulo para os componentes do Angular Material
+
+Os componentes Angular Material são frequentemente utilizados, e, como qualquer componente da plataforma, precisam ser importados dentro de um módulo para funcionar.
+
+Para evitar importar esses componentes um a um, é mais prático criar um módulo com todos os componentes do Angular Material e importá-los todos de uma vez para dentro do projeto.
+
+Para tanto:
+
+1. Gere um módulo vazio:
+```bash
+ng generate module material
+```
+
+2. Abra o arquivo `src/app/material/material.module.ts` e substitua seu conteúdo pelo código deste [gist](https://gist.github.com/mlabieniec/821356ddc5cbf19124601981a23b12e3#file-material-module-ts).
+
+3. Abra o arquivo `src/app/app.module.ts` e acrescente as linhas indicadas:
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Acrescentar a linha abaixo 
+import { MaterialModule } from './material/material.module';
+
+@NgModule({
+  declarations: [ AppComponent ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    // Acrescentar a linha abaixo e uma vírgula no final da linha acima
+    MaterialModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+});
+
+export class AppModule { }
+```
+**PRONTO**! Agora todos os componentes Angular Material já podem ser utilizados no projeto.
+
