@@ -2,7 +2,7 @@
 
 ## 1. Instalação
 
-No terminal, execute o comando abaixo. 
+No terminal (**em qualquer sistema operacional**), execute o comando abaixo. 
 * No Linux, o comando deverá ser precedido por `sudo`.
 
 ```bash
@@ -31,7 +31,7 @@ A versão esperada do Angular CLI, em abril de 2019, é, pelo menos, **7.3.7**.
 
 ## 2. Configuração
 
-Por padrão, o Angular CLI trabalha com o `npm` como gerenciador de dependências. Para fazê-lo utilizar o `yarn` para esse propósito, precisamos executar o comando a seguir.
+Por padrão, o Angular CLI trabalha com o `npm` como gerenciador de dependências. Para fazê-lo utilizar o `yarn` para esse propósito, precisamos executar o comando a seguir **em qualquer sistema operacional**.
 * No Linux, o comando deverá ser precedido por `sudo`.
 
 ```bash
@@ -121,7 +121,7 @@ ng generate module material
 
 2. Abra o arquivo `src/app/material/material.module.ts` e substitua seu conteúdo pelo código deste [gist](https://gist.github.com/mlabieniec/821356ddc5cbf19124601981a23b12e3#file-material-module-ts).
 
-3. Abra o arquivo `src/app/app.module.ts` e acrescente as linhas indicadas:
+3. Abra o arquivo `src/app/app.module.ts` e **acrescente as linhas indicadas** (**NÃO SUBSTITUA O CONTEÚDO DO ARQUIVO!!!**):
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -145,4 +145,3 @@ import { MaterialModule } from './material/material.module';
 export class AppModule { }
 ```
 **PRONTO**! Agora todos os componentes Angular Material já podem ser utilizados no projeto.
-
