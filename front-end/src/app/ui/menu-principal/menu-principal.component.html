@@ -1,0 +1,11 @@
+<button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Menu principal">menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a [routerLink]="['/veiculo']" mat-menu-item>Veículos</a>
+  <a [routerLink]="['/marca']" mat-menu-item>Marcas</a>
+  <a [routerLink]="['/modelo']" mat-menu-item>Modelos</a>
+  <a [routerLink]="['/cor']" mat-menu-item>Cores</a>
+  <a [routerLink]="['/combustivel']" mat-menu-item>Combustíveis</a>
+  <a [routerLink]="['/tipo']" mat-menu-item>Tipos</a>
+</mat-menu>
