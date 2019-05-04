@@ -12,6 +12,9 @@ db('mongodb://127.0.0.1:27017/4not-2019-1');
 
 var app = express();
 
+const cors = require('cors');
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

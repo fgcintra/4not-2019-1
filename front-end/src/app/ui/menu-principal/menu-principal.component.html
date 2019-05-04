@@ -2,6 +2,7 @@
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Menu principal">menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
+    <a href="/veiculo" mat-menu-item>Veículos com href</a>
   <a [routerLink]="['/veiculo']" mat-menu-item>Veículos</a>
   <a [routerLink]="['/marca']" mat-menu-item>Marcas</a>
   <a [routerLink]="['/modelo']" mat-menu-item>Modelos</a>
