@@ -3,3 +3,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-table {
+   width: 100%;
+}
+
+.mat-row .mat-raised-button {
+   opacity: 0.3;
+}
+
+.mat-row:hover .mat-raised-button {
+   opacity: 1;
+}
+
+.espac10px {
+   width: 0;
+   margin: 0 5px;
+}
+
+.list-toolbar {
+   background: transparent;
+   padding-left: 0 !important;
+}

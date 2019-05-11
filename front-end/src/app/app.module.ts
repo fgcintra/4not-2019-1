@@ -10,6 +10,7 @@ import { MenuPrincipalComponent } from './ui/menu-principal/menu-principal.compo
 import { RodapeComponent } from './ui/rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarcaListComponent } from './marca/marca-list/marca-list.component';
+import { MarcaFormComponent } from './marca/marca-form/marca-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MarcaListComponent } from './marca/marca-list/marca-list.component';
     CabecComponent,
     MenuPrincipalComponent,
     RodapeComponent,
-    MarcaListComponent
+    MarcaListComponent,
+    MarcaFormComponent
   ],
   imports: [
     BrowserModule,
