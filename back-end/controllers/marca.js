@@ -12,6 +12,10 @@ controller.novo = function(req, res) {
       // Callback se ser certo
       function() {
          // HTTP 201: Criado
+
+         // GAMBIARRA para não dar erro no front-end
+         res.send('');
+         
          res.sendStatus(201).end();
       },
       // Callback se der errado

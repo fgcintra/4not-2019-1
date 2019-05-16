@@ -25,3 +25,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    background: transparent;
    padding-left: 0 !important;
 }
+
+.mat-form-field {
+   width: 100%;
+}
+
+.espac20px {
+   width: 0;
+   margin: 0 10px; /* 10px de CADA lado = 20px */
+}
+
+.form-toolbar {
+   background: transparent;
+   justify-content: center;
+}

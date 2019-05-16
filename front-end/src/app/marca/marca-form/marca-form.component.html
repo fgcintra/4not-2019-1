@@ -1,3 +1,20 @@
-<p>
-  marca-form works!
-</p>
+<h1>{{ titulo }}</h1>
+
+<form #form="ngForm">
+
+  <mat-form-field>
+    <mat-label>Nome da marca</mat-label>
+    <input matInput name="nome" required placeholder="Informe o nome da marca (fabricante)" [(ngModel)]="marca.nome" />
+  </mat-form-field>
+
+</form>
+
+<mat-toolbar class="form-toolbar">
+  <button mat-raised-button color="accent" (click)="salvar()">
+    Salvar
+  </button>
+  <span class="espac20px"></span>
+  <button mat-raised-button (click)="voltar(form)">
+    Voltar
+  </button>
+</mat-toolbar>
