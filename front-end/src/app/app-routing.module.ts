@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MarcaListComponent } from './marca/marca-list/marca-list.component';
 import { MarcaFormComponent } from './marca/marca-form/marca-form.component';
 import { VeiculoListComponent } from './veiculo/veiculo-list/veiculo-list.component';
+import { VeiculoFormComponent } from './veiculo/veiculo-form/veiculo-form.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
   {
     path: 'veiculo',
     component: VeiculoListComponent
+  },
+  {
+    path: 'veiculo/novo',
+    component: VeiculoFormComponent
+  },
+  {
+    path: 'veiculo/:id',
+    component: VeiculoFormComponent
   }
 ];
 

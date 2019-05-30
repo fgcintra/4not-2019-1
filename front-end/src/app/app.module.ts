@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarcaListComponent } from './marca/marca-list/marca-list.component';
 import { MarcaFormComponent } from './marca/marca-form/marca-form.component';
 import { VeiculoListComponent } from './veiculo/veiculo-list/veiculo-list.component';
+import { VeiculoFormComponent } from './veiculo/veiculo-form/veiculo-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { VeiculoListComponent } from './veiculo/veiculo-list/veiculo-list.compon
     RodapeComponent,
     MarcaListComponent,
     MarcaFormComponent,
-    VeiculoListComponent
+    VeiculoListComponent,
+    VeiculoFormComponent
   ],
   imports: [
     BrowserModule,

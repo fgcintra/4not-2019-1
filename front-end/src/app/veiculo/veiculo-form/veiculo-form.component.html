@@ -1,0 +1,56 @@
+<h1>{{ titulo }}</h1>
+
+<form #form="ngForm">
+  
+  <mat-form-field>
+    <mat-label>Modelo</mat-label>
+    <mat-select 
+      [(ngModel)]="veiculo.modelo" 
+      name="modelo"
+      placeholder="Selecione o modelo do veículo"
+      required
+    >
+      <mat-option *ngFor="let modelo of modelos" [value]="modelo._id">
+        {{modelo.marca.nome}} {{modelo.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Ano de fabricação</mat-label>
+    <mat-select 
+      [(ngModel)]="veiculo.ano_fabricacao" 
+      name="ano_fabricacao"
+      placeholder="Selecione o ano de fabricação do veículo"
+      required
+    >
+      <mat-option *ngFor="let ano of anos" [value]="ano.ano">
+        {{ano.ano}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+   
+  <mat-form-field>
+    <mat-label>Ano do modelo</mat-label>
+    <input matInput 
+      name="ano_modelo"
+      type="number"
+      min="1950"
+      max="{{anoAtual + 1}}" 
+      required 
+      placeholder="Informe o ano do modelo do veículo" 
+      [(ngModel)]="veiculo.ano_modelo" 
+    />
+  </mat-form-field>
+
+</form>
+
+<mat-toolbar class="form-toolbar">
+  <button mat-raised-button color="accent" (click)="salvar()">
+    Salvar
+  </button>
+  <span class="espac20px"></span>
+  <button mat-raised-button (click)="voltar(form)">
+    Voltar
+  </button>
+</mat-toolbar>
