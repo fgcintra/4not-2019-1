@@ -43,6 +43,105 @@
     />
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Cor</mat-label>
+    <mat-select 
+      [(ngModel)]="veiculo.cor" 
+      name="cor"
+      placeholder="Selecione a cor do veículo"
+      required
+    >
+      <mat-option *ngFor="let cor of cores" [value]="cor._id">
+       {{cor.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Combustível</mat-label>
+    <mat-select 
+      [(ngModel)]="veiculo.combustivel" 
+      name="combustivel"
+      placeholder="Selecione o combustível do veículo"
+      required
+    >
+      <mat-option *ngFor="let combustivel of combustiveis" [value]="combustivel._id">
+       {{combustivel.descricao}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Placa</mat-label>
+    <input matInput 
+      name="placa"
+      maxlength="8"
+      required 
+      placeholder="Informe a placa do veículo no formato AAA-0000" 
+      [(ngModel)]="veiculo.placa" 
+    />
+  </mat-form-field>
+  
+  <mat-slide-toggle
+    name="importado"  
+    required 
+    [(ngModel)]="veiculo.importado" 
+  >
+  Importado
+  </mat-slide-toggle>
+  
+  <!-- step="0.01" -> duas casas decimais -->
+  <mat-form-field>
+    <mat-label>Valor de compra</mat-label>
+    <mat-icon matPrefix>attach_money</mat-icon>
+    <input matInput 
+      name="valor_compra"
+      type="number"
+      step="0.01" 
+      required 
+      placeholder="Informe o valor de compra do veículo" 
+      [(ngModel)]="veiculo.valor_compra" 
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Data de compra</mat-label>
+    <input matInput 
+      [matDatepicker]="dataCompra" 
+      placeholder="Informe a data de compra"
+      name="data_compra"
+      required
+      [(ngModel)]="veiculo.data_compra"
+    >
+    <mat-datepicker-toggle matSuffix [for]="dataCompra"></mat-datepicker-toggle>
+    <mat-datepicker #dataCompra></mat-datepicker>
+  </mat-form-field>
+
+  <!-- step="0.01" -> duas casas decimais -->
+  <mat-form-field>
+      <mat-label>Valor de venda</mat-label>
+      <mat-icon matPrefix>attach_money</mat-icon>
+      <input matInput 
+        name="valor_venda"
+        type="number"
+        step="0.01" 
+        placeholder="Informe o valor de venda do veículo" 
+        [(ngModel)]="veiculo.valor_venda" 
+      />
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Data de venda</mat-label>
+      <input matInput 
+        [matDatepicker]="dataVenda" 
+        placeholder="Informe a data de venda"
+        name="data_venda"
+        [(ngModel)]="veiculo.data_venda"
+      >
+      <mat-datepicker-toggle matSuffix [for]="dataVenda"></mat-datepicker-toggle>
+      <mat-datepicker #dataVenda></mat-datepicker>
+    </mat-form-field>
+    
 </form>
 
 <mat-toolbar class="form-toolbar">

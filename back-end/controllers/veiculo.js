@@ -13,7 +13,9 @@ controller.novo = function(req, res) {
       function() {
          //res.send(null); // Resposta sem conteúdo
          // HTTP 201: Criado
-         res.sendStatus(201).end();
+         
+         // send('') -> Gambiarra para não dar erro no front-end
+         res.send('').sendStatus(201).end();
       },
       // Callback se der errado
       function(erro) {

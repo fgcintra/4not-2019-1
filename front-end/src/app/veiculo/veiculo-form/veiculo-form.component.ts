@@ -15,7 +15,10 @@ export class VeiculoFormComponent implements OnInit {
 
   titulo = 'Novo veículo';
 
-  veiculo: any = {}; // Objeto vazio
+  /* Campos booleanos requeridos precisam ser inicializados
+    na declaração do objeto vazio
+  */
+  veiculo: any = {importado: false}; // Objeto vazio
 
   modelos: any = []; // Vetor vazio
   cores: any = [];
