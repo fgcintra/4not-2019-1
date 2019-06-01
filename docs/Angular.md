@@ -145,3 +145,138 @@ import { MaterialModule } from './material/material.module';
 export class AppModule { }
 ```
 **PRONTO**! Agora todos os componentes Angular Material já podem ser utilizados no projeto.
+
+## 8. Tirando uma cópia do projeto de exemplo do professor
+
+Se você acompanhou todas as aulas e fez o projeto de exemplo juntamente com o professor, **PARABÉNS!** Você está pronto para prosseguir no desenvolvimento do seu próprio projeto. Recomenda-se, no entanto, que você **faça uma cópia** do projeto `front-end` trabalhe nessa cópia de agora em diante.
+
+No entanto, se seu código estiver desatualizado em relação àquele do professor ou com erros, não se preocupe. Siga os passos a seguir:
+1. Acesse o [repositório do professor](https://github.com/fgcintra/4not-2019-1);
+2. No botão verde `Clone or download` à direita, escolha `Download ZIP`;
+3. Descompacte o arquivo baixado em um caminho do sistema operacional que **não tenha espaços nem acentos** (importante!);
+4. Abra a pasta do projeto no Visual Studio Code e, no terminal, execute `yarn install` para reconstruir as dependências do projeto na pasta `node_modules`.
+
+## 9. Criando os *services*
+
+Os *services* são os responsáveis por fazer a comunicação entre a aplicação Angular e a API (*back-end*). Para criar um *service* do Angular, execute o comando exemplificado mais abaixo.
+
+> **SUBSTITUA `nome-da-entidade` pelo nome da sua entidade no *back-end***. Fique atento às seguintes recomendações:
+> * Use sempre **letras minúsculas** no nome da entidade;
+> * Caso o nome da sua entidade tenha mais de uma palavra, mantenha-as todas em minúsculas e separe as partes com **hífen**.
+
+No terminal:
+
+```bash
+ng generate service nome-da-entidade/nome-da-entidade
+```
+> **NOTA**: as palavras `generate` e `service` podem ser abreviadas pelas suas primeiras letras:
+> 
+> `ng g s nome-da-entidade/nome-da-entidade`
+
+Isso irá criar um arquivo chamado `nome-da-entidade.service.ts` na pasta `src\app\nome-da-entidade`. Isso ajuda muito na organização do código.
+
+Copie o código do *service* `marca.service.ts` do [repositório do professor](https://github.com/fgcintra/4not-2019-1) e cole no arquivo gerado, substituindo o conteúdo. Faça as adaptações e substituições necessárias para o nome de sua entidade, com cuidado para **preservar as letras maiúsculas e minúsculas** de acordo com o padrão do Angular.
+
+É recomendável que você crie **TODOS** os *services* necessários agora no início, para que eles estejam disponíveis quando forem necessários.
+
+## 10. Criando um componente de listagem simples
+
+1. Para começar, escolha uma entidade simples e que não tenha nenhuma referência. No seu diagrama, essas entidades aparecem nas extremidades.
+
+> **SUBSTITUA `nome-da-entidade` pelo nome da sua entidade no *back-end***. Fique atento às seguintes recomendações:
+> * Use sempre **letras minúsculas** no nome da entidade;
+> * Caso o nome da sua entidade tenha mais de uma palavra, mantenha-as todas em minúsculas e separe as partes com **hífen**.
+> * **Não se esqueça do `-list` no final do comando!**
+
+2. Escolhida a entidade, execute no terminal:
+
+<pre>
+ng generate component nome-da-entidade/nome-da-entidade<b>-list</b>
+</pre>
+
+> **NOTA**: as palavras `generate` e `component` podem ser abreviadas pelas suas primeiras letras:
+> 
+> <code>ng g c nome-da-entidade/nome-da-entidade<b>-list</b></code>
+
+O comando executado irá criar os seguintes arquivos:
+* <code>src/app/nome-da-entidade/nome-da-entidade-list/nome-da-entidade-list.component.<b>html</b></code>
+* <code>src/app/nome-da-entidade/nome-da-entidade-list/nome-da-entidade-list.component.<b>scss</b></code>
+* <code>src/app/nome-da-entidade/nome-da-entidade-list/nome-da-entidade-list.component.<b>ts</b></code>
+
+3. Em seguida, copie o código dos arquivos  `marca-list.component.html`, `marca-list.component.scss` e `marca-list.component.ts` do [repositório do professor](https://github.com/fgcintra/4not-2019-1) e cole nos arquivo gerados, **de acordo com seus tipos**, substituindo o conteúdo. 
+
+4. Faça as adaptações e substituições necessárias para o nome de sua entidade, com cuidado para **preservar as letras maiúsculas e minúsculas** de acordo com o padrão do Angular.
+
+5. Você também precisará adaptar os **nomes dos atributos** da sua entidade nas colunas da tabela (arquivo `.html`) e na listagem da variável `displayedColumns` do arquivo `.ts`.
+  
+6. Abra o arquivo `src/app/app-routing.module`. No início do arquivo, importe o seu componente de listagem.
+
+```typescript
+import { NomeDaEntidadeListComponent } from './nome-da-entidade/nome-da-entidade-list/nome-da-entidade-list.component';
+```
+
+7. Mais abaixo, no mesmo arquivo, acrescente a rota para o seu componente:
+
+```typescript
+const routes: Routes = [
+  // Pode haver outras rotas antes
+  {
+    path: 'nome-da-entidade',
+    component: NomeDaEntidadeListComponent
+  }
+  // Pode haver outras rotas depois
+}
+```
+8. No arquivo `src\app\ui\menu-principal\menu-principal.component.html`, crie um item para acessar seu component de listagem, seguindo os exemplos já existentes nesse mesmo arquivo.
+
+9. Execute o comando `ng serve` no *front-end* e, em outro terminal, o comando `yarn start` no *back-end*. Você deve ser capaz de ver seus dados na listagem, caso os tenha cadastrado corretamente.
+
+## 11. Criando um componente de formulário simples
+
+1. Um componente de formulário simples fará par com um componente de listagem simples que você já criou. Portanto, **só gere componentes de formulário se você já tiver gerado o respectivo componente de listagem**.
+
+> **SUBSTITUA `nome-da-entidade` pelo nome da sua entidade no *back-end***. Fique atento às seguintes recomendações:
+> * Use sempre **letras minúsculas** no nome da entidade;
+> * Caso o nome da sua entidade tenha mais de uma palavra, mantenha-as todas em minúsculas e separe as partes com **hífen**.
+> * **Não se esqueça do `-form` no final do comando!**
+
+2. Escolhida a entidade, execute no terminal:
+
+<pre>
+ng generate component nome-da-entidade/nome-da-entidade<b>-form</b>
+</pre>
+
+O comando executado irá criar os seguintes arquivos:
+* <code>src/app/nome-da-entidade/nome-da-entidade-form/nome-da-entidade-form.component.<b>html</b></code>
+* <code>src/app/nome-da-entidade/nome-da-entidade-form/nome-da-entidade-form.component.<b>scss</b></code>
+* <code>src/app/nome-da-entidade/nome-da-entidade-form/nome-da-entidade-form.component.<b>ts</b></code>
+
+3. Em seguida, copie o código dos arquivos  `marca-form.component.html`, `marca-form.component.scss` e `marca-form.component.ts` do [repositório do professor](https://github.com/fgcintra/4not-2019-1) e cole nos arquivo gerados, **de acordo com seus tipos**, substituindo o conteúdo. 
+
+4. Faça as adaptações e substituições necessárias para o nome de sua entidade, com cuidado para **preservar as letras maiúsculas e minúsculas** de acordo com o padrão do Angular.
+
+5. Você precisará trabalhar o arquivo `.html` do formulário de acordo com os atributos e tipos de atributos da sua própria entidade. No exemplo do `marca-form.component.html`, o atributo exemplificado é do tipo *string*, e, portanto, é utilizado um `<input matInput>` para capturá-lo. Se esse não for o seu caso, você encontrará mais exemplos de componentes de formulário para outros tipos de dados em `veiculo-form.component.html`.
+
+6. Abra o arquivo `src/app/app-routing.module`. No início do arquivo, importe o seu componente de formulário.
+
+```typescript
+import { NomeDaEntidadeFormComponent } from './nome-da-entidade/nome-da-entidade-form/nome-da-entidade-form.component';
+```
+
+7. Mais abaixo, no mesmo arquivo, acrescente a rota para o seu componente:
+
+```typescript
+const routes: Routes = [
+  // Pode haver outras rotas antes
+  {
+    path: 'nome-da-entidade/novo',
+    component: NomeDaEntidadeFormComponent
+  },
+  {
+    path: 'nome-da-entidade/:id',
+    component: NomeDaEntidadeFormComponent
+  }
+  // Pode haver outras rotas depois
+}
+```
+8. Execute o comando `ng serve` no *front-end* e, em outro terminal, o comando `yarn start` no *back-end*. A partir do componente de listagem, você deverá ser capaz de acesar o formulário pelo botão `Nova entidade` ou pelo botão de edição de cada uma das linhas da listagem.
