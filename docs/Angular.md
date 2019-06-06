@@ -280,3 +280,23 @@ const routes: Routes = [
 }
 ```
 8. Execute o comando `ng serve` no *front-end* e, em outro terminal, o comando `yarn start` no *back-end*. A partir do componente de listagem, você deverá ser capaz de acesar o formulário pelo botão `Nova entidade` ou pelo botão de edição de cada uma das linhas da listagem.
+
+## 12. Quando você cria uma nova entidade não retorna automaticamente para a listagem?
+
+Calma. Seu objeto foi criado no servidor, mas a mensagem enviada pelo *back-end* foi entendida pelo Angular como um erro.
+
+Para resolver isso, siga as etapas:
+
+1. No *back-end*, abra o arquivo correspondente ao *controller* da sua entidade.
+2. Localize o método `novo()`.
+3. Nesse método, troque a linha
+```javascript
+res.sendStatus(201).end();
+```
+por
+```javascript
+res.send('').sendStatus(201).end();
+```
+4. Salve o arquivo. Se o *back-end* estiver no ar, não se esqueça de derrubar o servidor e executar `yarn start` novamente.
+5. Cadastre um novo objeto na sua aplicação *front-end*. Após o salvamento, você deverá ser redirecionado automaticamente de volta para a listagem.
+
