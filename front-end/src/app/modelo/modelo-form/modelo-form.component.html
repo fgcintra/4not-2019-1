@@ -1,0 +1,53 @@
+<h1>{{ titulo }}</h1>
+
+<form #form="ngForm">
+  
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput 
+      name="nome"
+      required 
+      placeholder="Informe o nome do modelo" 
+      [(ngModel)]="modelo.nome" 
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Marca</mat-label>
+    <mat-select 
+      [(ngModel)]="modelo.marca" 
+      name="marca"
+      placeholder="Selecione a marca do modelo"
+      required
+    >
+      <mat-option *ngFor="let marca of marcas" [value]="marca._id">
+       {{marca.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select 
+      [(ngModel)]="modelo.tipo" 
+      name="tipo"
+      placeholder="Selecione o tipo do modelo"
+      required
+    >
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo._id">
+       {{tipo.descricao}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+    
+</form>
+
+<mat-toolbar class="form-toolbar">
+  <button mat-raised-button color="accent" (click)="salvar()">
+    Salvar
+  </button>
+  <span class="espac20px"></span>
+  <button mat-raised-button (click)="voltar(form)">
+    Voltar
+  </button>
+</mat-toolbar>

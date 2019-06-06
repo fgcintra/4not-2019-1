@@ -12,7 +12,7 @@ controller.novo = function(req, res) {
       // Callback se ser certo
       function() {
          // HTTP 201: Criado
-         res.sendStatus(201).end();
+         res.send('').sendStatus(201).end();
       },
       // Callback se der errado
       function(erro) {

@@ -29,6 +29,8 @@ import { MarcaListComponent } from './marca/marca-list/marca-list.component';
 import { MarcaFormComponent } from './marca/marca-form/marca-form.component';
 import { VeiculoListComponent } from './veiculo/veiculo-list/veiculo-list.component';
 import { VeiculoFormComponent } from './veiculo/veiculo-form/veiculo-form.component';
+import { ModeloListComponent } from './modelo/modelo-list/modelo-list.component';
+import { ModeloFormComponent } from './modelo/modelo-form/modelo-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { VeiculoFormComponent } from './veiculo/veiculo-form/veiculo-form.compon
     MarcaListComponent,
     MarcaFormComponent,
     VeiculoListComponent,
-    VeiculoFormComponent
+    VeiculoFormComponent,
+    ModeloListComponent,
+    ModeloFormComponent
   ],
   imports: [
     BrowserModule,
