@@ -299,4 +299,19 @@ res.send('').sendStatus(201).end();
 ```
 4. Salve o arquivo. Se o *back-end* estiver no ar, não se esqueça de derrubar o servidor e executar `yarn start` novamente.
 5. Cadastre um novo objeto na sua aplicação *front-end*. Após o salvamento, você deverá ser redirecionado automaticamente de volta para a listagem.
+## 13. Criando componentes de listagem mais complexos
 
+Os componentes de listagem para entidades mais complexas seguem o mesmo princípio do componente de listagem simples, conforme explicado no item 10. A única diferença é que a tabela, provavelmente, terá mais colunas e a variável `displayedColumns` deverá ser ajustada para que elas sejam corretamente exibidas.
+
+## 14. Criando componentes de formulário mais complexos
+
+1. Siga os passos 1 e 2 do item 11.
+2. No passo 3, utilize o código dos arquivos  `veiculo-form.component.html`, `veiculo-form.component.scss` e `veiculo-form.component.ts` do [repositório do professor](https://github.com/fgcintra/4mat-2019-1) e cole nos arquivo gerados, **de acordo com seus tipos**, substituindo o conteúdo.
+3. Continue com os passos 4 e 5 do item 11.
+4. No arquivo `nome-da-entidade.component.ts`, você precisará importar, além do *service* correspondente a `NomeDaEntidade`, os *services* de **todas** as outras entidades relacionadas (para preencher os *comboboxes*).
+5. Verifique as variáveis da classe (logo acima do *constructor*). Deve haver:
+   * uma variável de **objeto vazio** para a entidade principal do formulário;
+   * uma variável de **vetor vazio**, com o nome **no plural**, **para cada** entidade relacionada.
+6. Edite os parâmetros do *constructor* para injetar apenas os serviços importados anteriormente.
+7. Edite a função `carregarListas()` para carregar corretamente as variáveis de vetor das entidades relacionadas.
+8. Continue com os passos 6, 7 e 8 do item 11.
